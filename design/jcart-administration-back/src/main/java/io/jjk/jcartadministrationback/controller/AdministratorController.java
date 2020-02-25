@@ -1,6 +1,9 @@
 package io.jjk.jcartadministrationback.controller;
 
+import io.jjk.jcartadministrationback.dto.in.AdministratorResetPwdInDTO;
 import io.jjk.jcartadministrationback.dto.out.AdministratorGetProfileOutDTO;
+import io.jjk.jcartadministrationback.dto.out.AdministratorListOutDTO;
+import io.jjk.jcartadministrationback.dto.out.PageOutDTO;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -25,4 +28,18 @@ public class AdministratorController {
 
     }
 
+    @GetMapping("/getPwdResetCode")
+    public String getPwdResetCode(@RequestParam String email){
+        return null;
+    }
+
+    @PostMapping("/resetPwd")
+    public void resetPwd(@RequestBody AdministratorResetPwdInDTO administratorResetPwdInDTO){
+
+    }
+
+    @GetMapping("/getList")
+    public PageOutDTO<AdministratorListOutDTO> getList(@RequestParam Integer pageNum){
+        return null;
+    }
 }
