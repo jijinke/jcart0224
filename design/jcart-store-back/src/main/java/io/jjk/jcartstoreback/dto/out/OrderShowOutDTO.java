@@ -2,7 +2,7 @@ package io.jjk.jcartstoreback.dto.out;
 
 import java.util.List;
 
-public class OrderShowOotDTO {
+public class OrderShowOutDTO {
     private Long orderId;
     private Byte status;
     private Double totalPrice;
