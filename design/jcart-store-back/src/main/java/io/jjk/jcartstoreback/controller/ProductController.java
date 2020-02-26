@@ -1,7 +1,6 @@
 package io.jjk.jcartstoreback.controller;
 
 import com.github.pagehelper.Page;
-import io.jjk.jcartstoreback.dto.in.OrderCheckoutInDTO;
 import io.jjk.jcartstoreback.dto.in.ProductSearchInDTO;
 import io.jjk.jcartstoreback.dto.out.PageOutDTO;
 import io.jjk.jcartstoreback.dto.out.ProductListOutDTO;
@@ -20,7 +19,7 @@ public class ProductController {
     @GetMapping("/search")
     public PageOutDTO<ProductListOutDTO> search(ProductSearchInDTO productSearchInDTO,
                                                 @RequestParam(required = false, defaultValue = "1") Integer pageNum){
-        Page<ProductListOutDTO> search = productService.search(pageNum);
+        Page<ProductListOutDTO> page = productService.search(pageNum);
         PageOutDTO<ProductListOutDTO> pageOutDTO = new PageOutDTO<>();
         pageOutDTO.setTotal(page.getTotal());
         pageOutDTO.setPageSize(page.getPageSize());
