@@ -9,11 +9,11 @@ public class ProductCreateInDTO {
     private Double discount;
     private Integer stockQuantity;
     private Byte status;
-    private String mainpicUrl;
+    private String mainPicUrl;
     private Integer rewordPoints;
-    private Integer sourtOrder;
+    private Integer sortOrder;
     private String description;
-    private List<String> otherpicUrls;
+    private List<String> otherPicUrls;
 
     public String getProductCode() {
         return productCode;
@@ -63,12 +63,12 @@ public class ProductCreateInDTO {
         this.status = status;
     }
 
-    public String getMainpicUrl() {
-        return mainpicUrl;
+    public String getMainPicUrl() {
+        return mainPicUrl;
     }
 
-    public void setMainpicUrl(String mainpicUrl) {
-        this.mainpicUrl = mainpicUrl;
+    public void setMainPicUrl(String mainPicUrl) {
+        this.mainPicUrl = mainPicUrl;
     }
 
     public Integer getRewordPoints() {
@@ -79,12 +79,12 @@ public class ProductCreateInDTO {
         this.rewordPoints = rewordPoints;
     }
 
-    public Integer getSourtOrder() {
-        return sourtOrder;
+    public Integer getSortOrder() {
+        return sortOrder;
     }
 
-    public void setSourtOrder(Integer sourtOrder) {
-        this.sourtOrder = sourtOrder;
+    public void setSortOrder(Integer sortOrder) {
+        this.sortOrder = sortOrder;
     }
 
     public String getDescription() {
@@ -95,11 +95,11 @@ public class ProductCreateInDTO {
         this.description = description;
     }
 
-    public List<String> getOtherpicUrls() {
-        return otherpicUrls;
+    public List<String> getOtherPicUrls() {
+        return otherPicUrls;
     }
 
-    public void setOtherpicUrls(List<String> otherpicUrls) {
-        this.otherpicUrls = otherpicUrls;
+    public void setOtherPicUrls(List<String> otherPicUrls) {
+        this.otherPicUrls = otherPicUrls;
     }
 }
