@@ -1,7 +1,6 @@
 var app = new Vue({
     el: '#app',
     data: {
-        productId: '',
         productCode: '',
         productName: '',
         price: '',
@@ -9,7 +8,6 @@ var app = new Vue({
         stockQuantity: '',
         rewordPoints: '',
         sortOrder: '',
-        productAbstract: '',
         description: '',
         selectedStatus: 1,
         selectedMainPic: '',
@@ -24,27 +22,10 @@ var app = new Vue({
         mainFileList: [],
         otherFileList: []
     },
-    mounted() {
-        console.log('view mounted');
-
-        tinymce.init({
-            selector: '#mytextarea'
-        });
-
-        var url = new URL(location.href);
-        this.productId = url.searchParams.get("productId");
-        if (!this.productId) {
-            alert('productId is null');
-            return;
-        }
-
-        this.getProductById();
-    },
     methods: {
-        handleUpdateClick() {
-            console.log('update click');
-            this.description = tinyMCE.activeEditor.getContent();
-            this.updateProduct();
+        handleCreateClick() {
+            console.log('create click');
+            this.createProduct();
         },
         handleOnMainChange(val) {
             this.selectedMainPic = val.raw;
@@ -107,9 +88,9 @@ var app = new Vue({
 
 
         },
-        updateProduct() {
-            axios.post('/product/update', {
-                productId: this.productId,
+        createProduct() {
+            axios.post('/product/create', {
+                productCode: this.productCode,
                 productName: this.productName,
                 price: this.price,
                 discount: this.discount,
@@ -118,40 +99,12 @@ var app = new Vue({
                 mainPicUrl: this.mainPicUrl,
                 rewordPoints: this.rewordPoints,
                 sortOrder: this.sortOrder,
-                productAbstract: this.productAbstract,
                 description: this.description,
                 otherPicUrls: this.otherPicUrls
             })
                 .then(function (response) {
                     console.log(response);
-                    alert('修改成功');
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-        },
-        getProductById() {
-            axios.get('/product/getById', {
-                params: {
-                    productId: this.productId
-                }
-            })
-                .then(function (response) {
-                    console.log(response);
-                    var product = response.data;
-                    app.productId = product.productId;
-                    app.productCode = product.productCode;
-                    app.productName = product.productName;
-                    app.price = product.price;
-                    app.discount = product.discount;
-                    app.stockQuantity = product.stockQuantity;
-                    app.selectedStatus = product.status;
-                    app.rewordPoints = product.rewordPoints;
-                    app.sortOrder = product.sortOrder;
-                    app.mainPicUrl = product.mainPicUrl;
-                    app.productAbstract = product.productAbstract;
-                    app.description = product.description;
-                    app.otherPicUrls = product.otherPicUrls;
+                    alert('创建成功');
                 })
                 .catch(function (error) {
                     console.log(error);
